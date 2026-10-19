@@ -1,0 +1,219 @@
+/* ==========================================================================
+   CHRONOS — INTERACTIVE TIMELINE & NAVIGATION CONTROLS (PHASE 5)
+   ========================================================================== */
+
+.timeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 350px;
+}
+
+.timeline-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.timeline-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timeline-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.timeline-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--era-glow-soft);
+  border: 1px solid var(--era-border);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--era-primary);
+}
+
+/* Scrubbing Track & Epoch Markers */
+.timeline-track-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.timeline-range-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.timeline-visual-bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.timeline-progress-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    var(--era-secondary) 0%,
+    var(--era-primary) 100%
+  );
+  box-shadow: 0 0 15px var(--era-glow);
+  transition: width 0.3s ease;
+}
+
+.timeline-nodes-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.timeline-epoch-node {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.25s ease;
+}
+
+.timeline-epoch-node:hover {
+  transform: translateY(-2px);
+}
+
+.epoch-node-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.epoch-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.25s ease;
+}
+
+.timeline-epoch-node.active .epoch-node-marker,
+.timeline-epoch-node:hover .epoch-node-marker {
+  color: var(--era-primary);
+}
+
+.timeline-epoch-node.active .epoch-node-dot {
+  background: var(--era-primary);
+  box-shadow: 0 0 12px var(--era-primary);
+  transform: scale(1.35);
+}
+
+.epoch-node-name {
+  font-family: var(--era-font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.timeline-epoch-node.active .epoch-node-name {
+  color: var(--text-primary);
+}
+
+/* Telemetry Interactive Control Deck */
+.telemetry-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.control-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(4, 5, 8, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.control-widget-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+
+.control-widget-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-toggle-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--era-border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.control-toggle-btn.active {
+  background: var(--era-primary);
+  color: #040508;
+  border-color: transparent;
+  box-shadow: 0 0 15px var(--era-glow);
+}
+
+.control-value-readout {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--era-accent);
+}
+
+@media (max-width: 960px) {
+  .telemetry-controls-grid {
+    grid-template-columns: 1fr;
+  }
+}

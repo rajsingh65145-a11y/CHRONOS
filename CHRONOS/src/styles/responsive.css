@@ -1,0 +1,260 @@
+/* ==========================================================================
+   CHRONOS — RESPONSIVE DESIGN, ACCESSIBILITY & ECO-GPU MODE (PHASE 7)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ACCESSIBILITY UTILITIES (SKIP LINK & SCREEN READER ONLY)
+   -------------------------------------------------------------------------- */
+
+.skip-to-content {
+  position: fixed;
+  top: -100px;
+  left: 1.5rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--era-primary);
+  color: #040508;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  box-shadow: 0 0 25px var(--era-glow);
+  transition: top 0.25s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Clear Focus Ring for Keyboard Navigation */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--era-primary);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   2. MANUAL REDUCED-MOTION / ECO-GPU MODE ([data-motion="reduced"])
+   -------------------------------------------------------------------------- */
+
+.chronos-app[data-motion='reduced'] *,
+.chronos-app[data-motion='reduced'] *::before,
+.chronos-app[data-motion='reduced'] *::after {
+  animation-play-state: paused !important;
+  transition-duration: 0.05s !important;
+}
+
+.chronos-app[data-motion='reduced'] .reveal-block {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.btn-hud-motion {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hud-motion:hover {
+  border-color: var(--era-primary);
+  color: var(--text-primary);
+}
+
+.btn-hud-motion.active {
+  background: var(--era-glow-soft);
+  border-color: var(--era-primary);
+  color: var(--era-primary);
+}
+
+/* --------------------------------------------------------------------------
+   3. KEYBOARD SHORTCUTS & TELEMETRY FOOTER
+   -------------------------------------------------------------------------- */
+
+.chronos-footer {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 5, 8, 0.85);
+  padding: 2.25rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.keyboard-shortcuts-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.shortcut-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+}
+
+.kbd-key {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--era-border);
+  color: var(--era-accent);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. MULTI-DEVICE RESPONSIVE BREAKPOINTS (MOBILE, TABLET, DESKTOP)
+   -------------------------------------------------------------------------- */
+
+/* Tablet Landscape & Small Laptops */
+@media (max-width: 1024px) {
+  .hud-epoch-readout {
+    display: none;
+  }
+
+  .vortex-assembly {
+    width: clamp(260px, 48vw, 340px);
+    height: clamp(260px, 48vw, 340px);
+  }
+}
+
+/* Tablet Portrait & Large Phones */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .hud-container {
+    padding: 0 1rem;
+  }
+
+  .hud-logo-text {
+    font-size: 0.92rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hud-telemetry {
+    gap: 0.5rem;
+  }
+
+  .btn-hud-portal,
+  .btn-hud-motion {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.62rem;
+  }
+
+  .stage-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-container {
+    padding: 1.35rem;
+  }
+
+  .timeline-nodes-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .timeline-range-input {
+    display: none;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Compact Mobile Screens (360px - 480px) */
+@media (max-width: 480px) {
+  .title-display {
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+  }
+
+  .btn-chronos {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .era-switcher-bar {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .vortex-assembly {
+    width: 250px;
+    height: 250px;
+  }
+
+  .portal-orbital-node {
+    font-size: 0.58rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .portal-orbital-node.node-ancient {
+    top: -6%;
+    left: 2%;
+  }
+
+  .portal-orbital-node.node-present {
+    top: 44%;
+    right: -4%;
+  }
+
+  .portal-orbital-node.node-future {
+    bottom: -6%;
+    left: 4%;
+  }
+
+  .diorama-hud-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}

@@ -1,4 +1,84 @@
-/* Phase 1 Minimal Reset - Full Design System will be added in Phase 2 */
+/* ==========================================================================
+   CHRONOS - GLOBAL DESIGN SYSTEM & CSS TOKENS (PHASE 2)
+   ========================================================================== */
+
+:root {
+  /* Core Cosmic Palette */
+  --bg-void: #040508;
+  --bg-deep: #080b12;
+  --bg-surface: rgba(13, 18, 30, 0.65);
+  --bg-glass: rgba(15, 23, 42, 0.45);
+  --bg-glass-heavy: rgba(8, 11, 18, 0.85);
+
+  /* Text Hierarchy */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Typography Families */
+  --font-ancient: 'Cinzel', serif;
+  --font-present: 'Space Grotesk', sans-serif;
+  --font-future: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Default Dynamic Era Variables (Present Day Fallback) */
+  --era-primary: #38bdf8;
+  --era-secondary: #6366f1;
+  --era-accent: #e0f2fe;
+  --era-glow: rgba(56, 189, 248, 0.35);
+  --era-glow-soft: rgba(56, 189, 248, 0.12);
+  --era-border: rgba(56, 189, 248, 0.3);
+  --era-font-heading: var(--font-present);
+
+  /* Layout & Animation Tokens */
+  --container-max: 1280px;
+  --header-height: 76px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-theme: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   DYNAMIC ERA THEMES
+   -------------------------------------------------------------------------- */
+
+[data-era='ancient'] {
+  --era-primary: #f59e0b;
+  --era-secondary: #ea580c;
+  --era-accent: #fef3c7;
+  --era-glow: rgba(245, 158, 11, 0.38);
+  --era-glow-soft: rgba(234, 88, 12, 0.14);
+  --era-border: rgba(245, 158, 11, 0.35);
+  --era-font-heading: var(--font-ancient);
+}
+
+[data-era='present'] {
+  --era-primary: #38bdf8;
+  --era-secondary: #6366f1;
+  --era-accent: #e0f2fe;
+  --era-glow: rgba(56, 189, 248, 0.38);
+  --era-glow-soft: rgba(99, 102, 241, 0.14);
+  --era-border: rgba(56, 189, 248, 0.35);
+  --era-font-heading: var(--font-present);
+}
+
+[data-era='future'] {
+  --era-primary: #e879f9;
+  --era-secondary: #22d3ee;
+  --era-accent: #fae8ff;
+  --era-glow: rgba(232, 121, 249, 0.4);
+  --era-glow-soft: rgba(34, 211, 238, 0.14);
+  --era-border: rgba(232, 121, 249, 0.38);
+  --era-font-heading: var(--font-future);
+}
+
+/* --------------------------------------------------------------------------
+   GLOBAL RESET & BASE HTML
+   -------------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -7,16 +87,161 @@
   padding: 0;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: dark;
+}
+
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: #05060a;
-  color: #f4f6fb;
-  font-family: 'Space Grotesk', sans-serif;
+  background-color: #040508;
+  background-image: radial-gradient(circle at 50% 25%, #10172a 0%, #040508 75%);
+  color: var(--text-primary);
+  font-family: var(--font-present);
+  line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--era-primary);
+}
+
+::selection {
+  background: var(--era-primary);
+  color: var(--bg-void);
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY SYSTEM
+   -------------------------------------------------------------------------- */
+
+.title-display {
+  font-family: var(--era-font-heading);
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    var(--era-accent) 45%,
+    var(--era-primary) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: font-family 0.3s ease;
+}
+
+.title-section {
+  font-family: var(--era-font-heading);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--era-primary);
+  transition: color var(--transition-theme);
+}
+
+.text-body {
+  font-family: var(--font-present);
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+/* --------------------------------------------------------------------------
+   REUSABLE GLASS & BUTTON COMPONENTS
+   -------------------------------------------------------------------------- */
+
+.glass-panel {
+  background: var(--bg-glass);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--era-border);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 35px var(--era-glow-soft);
+  transition:
+    border-color var(--transition-theme),
+    box-shadow var(--transition-theme),
+    transform 0.35s var(--ease-cinematic);
+}
+
+.btn-chronos {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--era-border);
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.btn-chronos:hover {
+  border-color: var(--era-primary);
+  box-shadow: 0 0 24px var(--era-glow);
+  transform: translateY(-2px);
+}
+
+.btn-chronos.active {
+  background: linear-gradient(
+    135deg,
+    var(--era-primary) 0%,
+    var(--era-secondary) 100%
+  );
+  color: #040508;
+  border-color: transparent;
+  box-shadow: 0 0 30px var(--era-glow);
+}
+
+.btn-chronos:focus-visible {
+  outline: 2px solid var(--era-primary);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   PHASE 1 FALLBACK CLASSES (Preserved for backwards compatibility)
+   -------------------------------------------------------------------------- */
 
 .phase1-verify-screen {
   min-height: 100vh;
@@ -61,4 +286,15 @@ body {
   letter-spacing: 0.18em;
   color: #94a3b8;
   text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
