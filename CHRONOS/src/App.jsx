@@ -6,7 +6,7 @@ import ScrollStory from './components/ScrollStory';
 import TimelineNav from './components/TimeLineNav';
 import './styles/layout.css';
 import './styles/transition.css';
-import './styles/responsive.css';
+import './styles/responsive.css';  
 
 function App() {
   const [activeEraId, setActiveEraId] = useState('present');
