@@ -152,7 +152,7 @@ function App() {
     revealElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [isPortalGateOpen]);
+  }, [isPortalGateOpen, activeEraId]);
 
   return (
     <div
