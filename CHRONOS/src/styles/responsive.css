@@ -1,11 +1,3 @@
-/* ==========================================================================
-   CHRONOS — RESPONSIVE DESIGN, ACCESSIBILITY & ECO-GPU MODE (PHASE 7)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. ACCESSIBILITY UTILITIES (SKIP LINK & SCREEN READER ONLY)
-   -------------------------------------------------------------------------- */
-
 .skip-to-content {
   position: fixed;
   top: -100px;
@@ -42,17 +34,12 @@
   border: 0;
 }
 
-/* Clear Focus Ring for Keyboard Navigation */
 button:focus-visible,
 input:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--era-primary);
   outline-offset: 3px;
 }
-
-/* --------------------------------------------------------------------------
-   2. MANUAL REDUCED-MOTION / ECO-GPU MODE ([data-motion="reduced"])
-   -------------------------------------------------------------------------- */
 
 .chronos-app[data-motion='reduced'] *,
 .chronos-app[data-motion='reduced'] *::before,
@@ -90,10 +77,6 @@ a:focus-visible {
   border-color: var(--era-primary);
   color: var(--era-primary);
 }
-
-/* --------------------------------------------------------------------------
-   3. KEYBOARD SHORTCUTS & TELEMETRY FOOTER
-   -------------------------------------------------------------------------- */
 
 .chronos-footer {
   width: 100%;
@@ -145,11 +128,6 @@ a:focus-visible {
   font-size: 0.65rem;
 }
 
-/* --------------------------------------------------------------------------
-   4. MULTI-DEVICE RESPONSIVE BREAKPOINTS (MOBILE, TABLET, DESKTOP)
-   -------------------------------------------------------------------------- */
-
-/* Tablet Landscape & Small Laptops */
 @media (max-width: 1024px) {
   .hud-epoch-readout {
     display: none;
@@ -161,7 +139,6 @@ a:focus-visible {
   }
 }
 
-/* Tablet Portrait & Large Phones */
 @media (max-width: 768px) {
   :root {
     --header-height: 68px;
@@ -210,7 +187,6 @@ a:focus-visible {
   }
 }
 
-/* Compact Mobile Screens (360px - 480px) */
 @media (max-width: 480px) {
   .title-display {
     font-size: clamp(1.9rem, 9vw, 2.5rem);

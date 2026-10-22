@@ -273,7 +273,6 @@ function App() {
           />
         </section>
 
-        {/* EraScenes with Key Prop to naturally reset state without useEffect */}
         <EraScenes
           key={currentEra.id}
           activeEra={currentEra}

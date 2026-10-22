@@ -32,7 +32,6 @@ function EraDioramaArtwork({ eraId }) {
     );
   }
 
-  // Default: Present Day (2026 CE)
   return (
     <div
       className="diorama-art-layer diorama-present diorama-parallax-layer"

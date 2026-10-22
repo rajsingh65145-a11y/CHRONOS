@@ -1,8 +1,3 @@
-/* ==========================================================================
-   CHRONOS — CINEMATIC OPENING SCREEN & 3D TIME PORTAL (DESKTOP OPTIMIZED)
-   ========================================================================== */
-
-/* 1. FULL-SCREEN CINEMATIC OPENING OVERLAY */
 .portal-intro-overlay {
   position: fixed;
   inset: 0;
@@ -190,7 +185,6 @@
   box-shadow: 0 0 35px var(--era-primary);
 }
 
-/* 2. 3D TIME PORTAL ENGINE */
 .portal-Interactive-wrapper {
   position: relative;
   display: flex;
@@ -382,7 +376,6 @@
   margin-top: 0.2rem;
 }
 
-/* 3. ORBITAL NODES */
 .portal-orbital-node {
   position: absolute;
   z-index: 15;

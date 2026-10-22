@@ -1,27 +1,19 @@
-/* ==========================================================================
-   CHRONOS - GLOBAL DESIGN SYSTEM & CSS TOKENS (PHASE 2)
-   ========================================================================== */
-
 :root {
-  /* Core Cosmic Palette */
   --bg-void: #040508;
   --bg-deep: #080b12;
   --bg-surface: rgba(13, 18, 30, 0.65);
   --bg-glass: rgba(15, 23, 42, 0.45);
   --bg-glass-heavy: rgba(8, 11, 18, 0.85);
 
-  /* Text Hierarchy */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  /* Typography Families */
   --font-ancient: 'Cinzel', serif;
   --font-present: 'Space Grotesk', sans-serif;
   --font-future: 'Orbitron', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Default Dynamic Era Variables (Present Day Fallback) */
   --era-primary: #38bdf8;
   --era-secondary: #6366f1;
   --era-accent: #e0f2fe;
@@ -30,7 +22,6 @@
   --era-border: rgba(56, 189, 248, 0.3);
   --era-font-heading: var(--font-present);
 
-  /* Layout & Animation Tokens */
   --container-max: 1280px;
   --header-height: 76px;
   --radius-sm: 8px;
@@ -40,10 +31,6 @@
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-theme: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* --------------------------------------------------------------------------
-   DYNAMIC ERA THEMES
-   -------------------------------------------------------------------------- */
 
 [data-era='ancient'] {
   --era-primary: #f59e0b;
@@ -74,10 +61,6 @@
   --era-border: rgba(232, 121, 249, 0.38);
   --era-font-heading: var(--font-future);
 }
-
-/* --------------------------------------------------------------------------
-   GLOBAL RESET & BASE HTML
-   -------------------------------------------------------------------------- */
 
 *,
 *::before,
@@ -128,10 +111,6 @@ body {
   color: var(--bg-void);
 }
 
-/* --------------------------------------------------------------------------
-   TYPOGRAPHY SYSTEM
-   -------------------------------------------------------------------------- */
-
 .title-display {
   font-family: var(--era-font-heading);
   font-size: clamp(2.4rem, 6vw, 4.75rem);
@@ -176,10 +155,6 @@ body {
   color: var(--text-secondary);
   max-width: 65ch;
 }
-
-/* --------------------------------------------------------------------------
-   REUSABLE GLASS & BUTTON COMPONENTS
-   -------------------------------------------------------------------------- */
 
 .glass-panel {
   background: var(--bg-glass);
@@ -238,10 +213,6 @@ body {
   outline: 2px solid var(--era-primary);
   outline-offset: 4px;
 }
-
-/* --------------------------------------------------------------------------
-   PHASE 1 FALLBACK CLASSES (Preserved for backwards compatibility)
-   -------------------------------------------------------------------------- */
 
 .phase1-verify-screen {
   min-height: 100vh;

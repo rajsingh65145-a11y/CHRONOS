@@ -42,10 +42,8 @@ function VortexCore({
         ref={vortexRef}
         className={`vortex-assembly ${isJumping ? 'era-jumping' : ''}`}
       >
-        {/* Outer Ambient Glow Halo */}
         <div className="portal-ambient-halo" aria-hidden="true" />
 
-        {/* SVG Precision Chronometer Dial Ring */}
         <svg
           className="portal-dial-svg"
           viewBox="0 0 200 200"
@@ -80,23 +78,19 @@ function VortexCore({
           />
         </svg>
 
-        {/* Relativistic Plasma Accretion Rings */}
         <div className="portal-accretion-disk" aria-hidden="true" />
         <div className="portal-energy-stream" aria-hidden="true" />
 
-        {/* 3D Gyroscopic Rings */}
         <div className="portal-gyro-ring ring-alpha" aria-hidden="true" />
         <div className="portal-gyro-ring ring-beta" aria-hidden="true" />
         <div className="portal-gyro-ring ring-gamma" aria-hidden="true" />
 
-        {/* Event Horizon Singularity Center */}
         <div className="portal-singularity-core">
           <span className="core-epoch-label">{activeEra.epoch}</span>
           <span className="core-era-Readout">{activeEra.name}</span>
           <span className="core-freq-readout">{activeEra.frequency}</span>
         </div>
 
-        {/* Interactive Orbital Era Nodes */}
         {showOrbitalNodes &&
           eras.map((era) => {
             const isSelected = activeEra.id === era.id;
@@ -140,7 +134,6 @@ export function PortalOpeningGate({
     }, 750);
   };
 
-  // Cleanup timeout on unmount & allow Escape key to bypass gate
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -162,16 +155,13 @@ export function PortalOpeningGate({
       aria-modal="true"
       aria-label="Chronos Temporal Portal Gate"
     >
-      {/* Relativistic Flash Overlay */}
       <div className="intro-flash-layer" aria-hidden="true" />
 
-      {/* Top Widescreen Letterbox Bar */}
       <div className="cinema-letterbox top" aria-hidden="true">
         <span>CHRONOS // SINGULARITY ENGINE V3.026</span>
         <span>PRESS [ESC] TO BYPASS GATE</span>
       </div>
 
-      {/* Top Telemetry Pill */}
       <div className="intro-top-meta">
         <div className="intro-status-pill">
           <span className="status-pulse-dot" />
@@ -179,7 +169,6 @@ export function PortalOpeningGate({
         </div>
       </div>
 
-      {/* Centerpiece Interactive 3D Glowing Time Portal */}
       <VortexCore
         activeEra={activeEra}
         eras={eras}
@@ -188,7 +177,6 @@ export function PortalOpeningGate({
         showOrbitalNodes={true}
       />
 
-      {/* Bottom Title & Breach Trigger */}
       <div className="intro-bottom-controls">
         <h1 className="intro-title">CHRONOS</h1>
         <p className="intro-subtitle">
@@ -206,7 +194,6 @@ export function PortalOpeningGate({
         </button>
       </div>
 
-      {/* Bottom Widescreen Letterbox Bar */}
       <div className="cinema-letterbox bottom" aria-hidden="true">
         <span>COORDINATES // {activeEra.coordinates}</span>
         <span>FREQ // {activeEra.frequency}</span>

@@ -5,7 +5,6 @@ function TimelineNav({ activeEra, eras, onSelectEra }) {
   const [isHarmonicsActive, setIsHarmonicsActive] = useState(false);
   const [isSingularityLocked, setIsSingularityLocked] = useState(true);
 
-  // Map eras to slider indices (0: ancient, 1: present, 2: future)
   const eraIndexMap = { ancient: 0, present: 1, future: 2 };
   const currentIndex = eraIndexMap[activeEra.id] ?? 1;
 
@@ -34,7 +33,6 @@ function TimelineNav({ activeEra, eras, onSelectEra }) {
           </span>
         </div>
 
-        {/* Interactive Timeline Track & Slider */}
         <div className="timeline-track-wrapper">
           <input
             type="range"
@@ -75,7 +73,6 @@ function TimelineNav({ activeEra, eras, onSelectEra }) {
           </div>
         </div>
 
-        {/* Telemetry Control Widgets */}
         <div className="telemetry-controls-grid">
           <div className="control-widget">
             <span className="control-widget-label">TELLURIC HARMONICS</span>
